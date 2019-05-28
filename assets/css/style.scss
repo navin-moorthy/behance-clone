@@ -1,0 +1,193 @@
+* {
+  box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  -moz-box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  font-family: "Helvetica", "Helvetica Neue", Arial, sans-serif;
+}
+
+#page_wrapper {
+  width: 100vw;
+  height: 100vh;
+  overflow-x: hidden;
+  background-color: #e8e8e7;
+}
+
+.grid {
+  display: grid;
+  width: 100%;
+  height: auto;
+}
+
+#nav {
+  grid-template-columns: repeat(3, 1fr);
+  background-color: #131418;
+  justify-content: space-between;
+  align-items: center;
+  #logo {
+    .logo {
+      margin-left: 20px;
+      width: 90px;
+      fill: #fff;
+    }
+  }
+  #tabs {
+    display: inline-block;
+    text-align: center;
+    ul {
+      display: block;
+      li {
+        display: inline-block;
+        padding: 10px 15px;
+        margin: 0 5px;
+        color: rgba(255, 255, 255, 0.5);
+        font-weight: 300;
+        list-style-type: none;
+        &.selected {
+          color: #fff;
+        }
+      }
+    }
+  }
+  #account {
+    display: inline-block;
+    text-align: right;
+    padding: 10px 25px;
+    a {
+      color: #fff;
+      font-weight: 400;
+      text-decoration: none;
+    }
+  }
+}
+
+#header {
+  grid-template-columns: 1fr;
+  background: url(https://a5.behance.net/f4f80a6d067fb4c3c682aa6643bf43d0d646ec57/img/site/1x/cta-header.jpg);
+  // background-attachment: fixed;
+  background-position: center;
+  background-size: cover;
+  height: 200px;
+  align-items: center;
+  padding: 25px;
+  div {
+    display: inline-block;
+    text-align: center;
+    h1 {
+      color: #fff;
+      font-weight: 200;
+      font-size: 32px;
+      margin-bottom: 50px;
+    }
+    .btn {
+      display: inline-block;
+      border-radius: 8px;
+      padding: 10px 30px;
+      background-color: #4464e8;
+      color: #fff;
+      text-decoration: none;
+    }
+  }
+}
+
+#filters {
+  grid-template-columns: repeat(2, 1fr);
+  padding: 15px 25px;
+  background-color: #fff;
+  box-shadow: 0 1px 2px #cccccc;
+  ul {
+    li {
+      display: inline-block;
+      color: #53565a;
+      list-style-type: none;
+      padding-right: 15px;
+      &:last-of-type {
+        padding-right: 0;
+      }
+    }
+  }
+
+  #extra_filters {
+    ul {
+      text-align: right;
+      li {
+        display: inline-block;
+      }
+    }
+  }
+}
+
+#cards {
+  grid-template-columns: repeat(4, 1fr);
+  grid-gap: 25px;
+  padding: 25px;
+  .card {
+    background-color: #fff;
+    .featured-img {
+      width: 100%;
+    }
+    .details {
+      padding: 15px;
+      padding-bottom: 0px;
+      .title {
+        font-size: 16px;
+        font-weight: 700;
+        margin: 0;
+        padding: 0;
+        color: #53565a;
+      }
+      .author {
+        font-size: 14px;
+        font-weight: 200;
+        margin: 15px 0;
+        padding: 0;
+        color: #53565a;
+      }
+    }
+    .reactions {
+      padding: 10px 15px;
+      background-color: #cecece;
+      .likes,
+      .views,
+      .bookmark {
+        font-size: 12px;
+        display: inline-block;
+        margin: 0;
+        padding: 0;
+      }
+      .likes {
+        &::before {
+          content: "Likes: ";
+        }
+      }
+      .views {
+        &::before {
+          content: "Views: ";
+        }
+      }
+      .bookmark {
+        text-decoration: underline;
+        float: right;
+      }
+      .bookmark.bookmarked {
+        color: #e84464;
+        &::after {
+          content: "ed";
+        }
+      }
+    }
+  }
+  @media screen and (max-width: 960px) {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  @media screen and (max-width: 768px) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  @media screen and (max-width: 550px) {
+    grid-template-columns: repeat(1, 1fr);
+  }
+}
